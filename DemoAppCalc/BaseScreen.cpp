@@ -10,26 +10,14 @@ void BaseScreen::showOptions() {
     }
 }
 
-AbstractScreen *BaseScreen::waitInputAndProcess() {
+void BaseScreen::waitInputAndProcess(const AbstractController* ctrl, AbstractScreen*& nextScreen, std::string& response) {
     int selectedOption = -1;
     std::cin >> selectedOption;
 
     // TODO: add validation
 
     ScreenOption &option = mOptions.at(selectedOption);
-    const std::function<AbstractScreen *()> &action = option.GetAction();
-    auto nextScreen = action();
+    const std::function<OptionActionType> &action = option.GetAction();
 
-    return nextScreen;
+    action(ctrl, nextScreen, response);
 }
-
-//bool BaseScreen::optionEnterChild(BaseScreen* parent, BaseScreen* child) {
-//	child->setParent(parent);
-//	parent->getController()->setActiveScreen(child);
-//	return true;
-//}
-//
-//bool BaseScreen::optionBack()
-//{
-//	return false;
-//}

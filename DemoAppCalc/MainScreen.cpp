@@ -1,13 +1,15 @@
 #include "MainScreen.h"
 
+#include "types.h"
 #include "MathActionsScreen.h"
+#include "HistoryActionsScreen.h"
 
 MainScreen::MainScreen() {
 
 	mOptions.insert({ 0,
 					 ScreenOption(
 							 "Выход\\Назад",
-							 std::function<AbstractScreen* ()>([this]() {
+							 std::function<OptionActionType>([this](const AbstractController* ctrl, AbstractScreen*& nextScreen, std::string& response) {
 								 return nullptr;
 							 })
 					 )
@@ -15,18 +17,18 @@ MainScreen::MainScreen() {
 	mOptions.insert({ 1,
 					 ScreenOption(
 							 "Математические действия",
-							 std::function<AbstractScreen* ()>([this]() {
-								 auto math = new MathActionsScreen();
-								 math->setParent(this);
-								 return math;
+							 std::function<OptionActionType>([this](const AbstractController* ctrl, AbstractScreen*& nextScreen, std::string& response) {
+								 nextScreen = new MathActionsScreen();
+								 nextScreen->setParent(this);
 							 })
 					 )
 		});
 	mOptions.insert({ 2,
 					 ScreenOption(
 							 "История",
-							 std::function<AbstractScreen* ()>([this] {
-								 return nullptr;
+							 std::function<OptionActionType>([this](const AbstractController* ctrl, AbstractScreen*& nextScreen, std::string& response) {
+								 nextScreen = new HistoryActionsScreen();
+								 nextScreen->setParent(this);
 							 })
 					 )
 		});

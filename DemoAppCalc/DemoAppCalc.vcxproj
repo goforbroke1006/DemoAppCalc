@@ -140,19 +140,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseScreen.cpp" />
-    <ClCompile Include="DemoAppCalc.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="History.cpp" />
     <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="MathActionsScreen.cpp" />
+    <ClCompile Include="HistoryActionsScreen.cpp" />
     <ClCompile Include="ScreenController.cpp" />
     <ClCompile Include="ScreenOption.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AbstractScreen.h" />
     <ClInclude Include="BaseScreen.h" />
+    <ClInclude Include="AbstractController.h" />
+    <ClInclude Include="History.h" />
     <ClInclude Include="MainScreen.h" />
     <ClInclude Include="MathActionsScreen.h" />
+    <ClInclude Include="HistoryActionsScreen.h" />
     <ClInclude Include="ScreenController.h" />
     <ClInclude Include="ScreenOption.h" />
+    <ClInclude Include="types.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

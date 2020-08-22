@@ -4,6 +4,7 @@
 #include <map>
 #include <functional>
 
+#include "AbstractController.h"
 #include "AbstractScreen.h"
 #include "ScreenOption.h"
 
@@ -14,11 +15,7 @@ public:
 
 	void showOptions();
 
-	AbstractScreen* waitInputAndProcess();
-
-	//static bool optionEnterChild(BaseScreen* parent, BaseScreen* child);
-
-	//static bool optionBack();
+	void waitInputAndProcess(const AbstractController *ctrl, AbstractScreen*& nextScreen, std::string &response);
 
 protected:
 	AbstractScreen* mParent;
