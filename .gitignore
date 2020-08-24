@@ -1,3 +1,6 @@
+.idea/
+cmake-build-debug/
+cmake-build-debug-visual-studio-2019
 history.txt
 
 ## Ignore Visual Studio temporary files, build results, and
@@ -262,5 +265,4 @@ UpgradeLog*.htm
 ServiceFabricBackup/
 *.rptproj.bak
 
-.idea/
-cmake-build-debug/
+
