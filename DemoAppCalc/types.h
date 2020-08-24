@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "AbstractController.h"
 #include "AbstractScreen.h"
+#include "HistoryOwner.h"
 
-#define OptionActionType void(const AbstractController*, AbstractScreen* &, std::string &)
+#define OptionActionType void(const HistoryOwner*, AbstractScreen* &, std::string &)

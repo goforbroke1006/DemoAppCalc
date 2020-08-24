@@ -4,7 +4,7 @@
 #include <iostream>
 #include <memory>
 
-#include "ScreenController.h"
+#include "Router.h"
 #include "MainScreen.h"
 #include "MathActionsScreen.h"
 
@@ -13,7 +13,7 @@ int main() {
 
     auto mainScreen = std::shared_ptr<AbstractScreen>(new MainScreen());
 
-    auto controller = std::make_shared<ScreenController>();
+    auto controller = std::make_shared<Router>();
     controller->setActiveScreen(mainScreen);
 
     while (controller->showScreen());

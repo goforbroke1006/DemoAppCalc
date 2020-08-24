@@ -1,6 +1,5 @@
 #include "MainScreen.h"
 
-#include "types.h"
 #include "MathActionsScreen.h"
 #include "HistoryActionsScreen.h"
 
@@ -10,9 +9,8 @@ MainScreen::MainScreen() {
                      ScreenOption(
                              "Выход\\Назад",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen* &nextScreen,
-                                            std::string &response) {
-                                         //
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&ns, std::string &resp) {
+                                         ns = nullptr;
                                      })
                      )
                     });
@@ -20,10 +18,9 @@ MainScreen::MainScreen() {
                      ScreenOption(
                              "Математические действия",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen* &nextScreen,
-                                            std::string &response) {
-                                         nextScreen = new MathActionsScreen();
-                                         nextScreen->setParent(this);
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&ns, std::string &resp) {
+                                         ns = new MathActionsScreen();
+                                         ns->setParent(this);
                                      })
                      )
                     });
@@ -31,10 +28,9 @@ MainScreen::MainScreen() {
                      ScreenOption(
                              "История",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen* &nextScreen,
-                                            std::string &response) {
-                                         nextScreen = new HistoryActionsScreen();
-                                         nextScreen->setParent(this);
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&ns, std::string &resp) {
+                                         ns = new HistoryActionsScreen();
+                                         ns->setParent(this);
                                      })
                      )
                     });

@@ -2,25 +2,22 @@
 
 #include <fstream>
 
-#include "types.h"
-
 HistoryActionsScreen::HistoryActionsScreen() {
     mOptions.insert({0,
                      ScreenOption(
                              "Сохранить в файл",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen *&nextScreen,
-                                            std::string &response) {
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&ns, std::string &resp) {
                                          std::ofstream out("history.txt");
                                          if (out.is_open()) {
                                              out << ctrl->getHistory()->asString("\n") << std::endl;
                                              out.close();
-                                             response = "Сохранено в файл 'history.txt'";
+                                             resp = "Сохранено в файл 'history.txt'";
                                          } else {
-                                             response = "Ошибка сохранения";
+                                             resp = "Ошибка сохранения";
                                          }
 
-                                         nextScreen = this;
+                                         ns = this;
                                      })
                      )
                     });
@@ -29,11 +26,10 @@ HistoryActionsScreen::HistoryActionsScreen() {
                      ScreenOption(
                              "Не сохранять",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen *&nextScreen,
-                                            std::string &response) {
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&ns, std::string &resp) {
                                          ctrl->getHistory()->clear();
 
-                                         nextScreen = this->mParent;
+                                         ns = this->mParent;
                                      })
                      )
                     });
@@ -42,10 +38,9 @@ HistoryActionsScreen::HistoryActionsScreen() {
                      ScreenOption(
                              "Вывести всю историю на экран",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen *&nextScreen,
-                                            std::string &response) {
-                                         nextScreen = this;
-                                         response = ctrl->getHistory()->asString("\n");
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&ns, std::string &resp) {
+                                         ns = this;
+                                         resp = ctrl->getHistory()->asString("\n");
                                      })
                      )
                     });
@@ -54,9 +49,8 @@ HistoryActionsScreen::HistoryActionsScreen() {
                      ScreenOption(
                              "Назад",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen *&nextScreen,
-                                            std::string &response) {
-                                         nextScreen = this->mParent;
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&ns, std::string &resp) {
+                                         ns = this->mParent;
                                      })
                      )
                     });

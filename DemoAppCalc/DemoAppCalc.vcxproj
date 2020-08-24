@@ -145,7 +145,7 @@
     <ClCompile Include="MainScreen.cpp" />
     <ClCompile Include="MathActionsScreen.cpp" />
     <ClCompile Include="HistoryActionsScreen.cpp" />
-    <ClCompile Include="ScreenController.cpp" />
+    <ClCompile Include="Router.cpp" />
     <ClCompile Include="ScreenOption.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,7 +156,7 @@
     <ClInclude Include="MainScreen.h" />
     <ClInclude Include="MathActionsScreen.h" />
     <ClInclude Include="HistoryActionsScreen.h" />
-    <ClInclude Include="ScreenController.h" />
+    <ClInclude Include="Router.h" />
     <ClInclude Include="ScreenOption.h" />
     <ClInclude Include="types.h" />
   </ItemGroup>

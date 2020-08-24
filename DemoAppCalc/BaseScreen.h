@@ -4,21 +4,15 @@
 #include <map>
 #include <functional>
 
-#include "AbstractController.h"
 #include "AbstractScreen.h"
 #include "ScreenOption.h"
+#include "HistoryOwner.h"
 
 class BaseScreen : public AbstractScreen {
 public:
     void setParent(AbstractScreen *parent) override;
 
-    void showOptions() override;
-
-    void waitInputAndProcess(
-            const AbstractController *ctrl,
-            AbstractScreen *&nextScreen,
-            std::string &response
-    ) override;
+    std::map<int, ScreenOption> getOptions();
 
 protected:
     AbstractScreen *mParent;

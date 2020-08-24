@@ -21,9 +21,6 @@
     <ClCompile Include="ScreenOption.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="ScreenController.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="MainScreen.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -39,15 +36,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Router.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseScreen.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ScreenOption.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenController.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="MainScreen.h">
@@ -69,6 +66,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="AbstractController.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Router.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

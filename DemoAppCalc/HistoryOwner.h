@@ -2,7 +2,7 @@
 
 #include "History.h"
 
-class AbstractController {
+class HistoryOwner {
 public:
     virtual History *getHistory() const = 0;
 };

@@ -9,7 +9,7 @@ MathActionsScreen::MathActionsScreen() {
                      ScreenOption(
                              "Умножение",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen *&nextScreen,
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&nextScreen,
                                             std::string &response) {
                                          std::cout << "a * b" << std::endl;
                                          double a, b;
@@ -27,7 +27,7 @@ MathActionsScreen::MathActionsScreen() {
                      ScreenOption(
                              "Деление",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen *&nextScreen,
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&nextScreen,
                                             std::string &response) {
                                          std::cout << "a / b" << std::endl;
                                          double a, b;
@@ -46,7 +46,7 @@ MathActionsScreen::MathActionsScreen() {
                      ScreenOption(
                              "Сложение",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen *&nextScreen,
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&nextScreen,
                                             std::string &response) {
                                          std::cout << "a + b" << std::endl;
                                          double a, b;
@@ -65,7 +65,7 @@ MathActionsScreen::MathActionsScreen() {
                      ScreenOption(
                              "Вычитание",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen *&nextScreen,
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&nextScreen,
                                             std::string &response) {
                                          std::cout << "a - b" << std::endl;
                                          double a, b;
@@ -84,7 +84,7 @@ MathActionsScreen::MathActionsScreen() {
                      ScreenOption(
                              "Попробовать еще раз",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen *&nextScreen,
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&nextScreen,
                                             std::string &response) {
                                          nextScreen = this;
                                      }))
@@ -93,7 +93,7 @@ MathActionsScreen::MathActionsScreen() {
                      ScreenOption(
                              "Назад",
                              std::function<OptionActionType>(
-                                     [this](const AbstractController *ctrl, AbstractScreen *&nextScreen,
+                                     [this](const HistoryOwner *ctrl, AbstractScreen *&nextScreen,
                                             std::string &response) {
                                          nextScreen = this->mParent;
                                      })

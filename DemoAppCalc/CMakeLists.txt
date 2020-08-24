@@ -4,7 +4,7 @@ add_executable(${PROJECT_NAME}
 
         main.cpp
 
-        AbstractScreen.cpp
+#        AbstractController.h
         AbstractScreen.h
         BaseScreen.cpp
         BaseScreen.h
@@ -19,8 +19,8 @@ add_executable(${PROJECT_NAME}
         HistoryActionsScreen.cpp
         HistoryActionsScreen.h
 
-        ScreenController.cpp
-        ScreenController.h
+        Router.cpp
+        Router.h
         ScreenOption.cpp
         ScreenOption.h
         )

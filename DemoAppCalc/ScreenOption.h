@@ -3,7 +3,6 @@
 #include <string>
 #include <functional>
 
-#include "AbstractScreen.h"
 #include "types.h"
 
 class ScreenOption
