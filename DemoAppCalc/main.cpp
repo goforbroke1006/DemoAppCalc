@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <memory>
 
 #include "ScreenController.h"
 #include "MainScreen.h"
@@ -10,9 +11,9 @@
 int main() {
     setlocale(LC_ALL, "ru-RU");
 
-    MainScreen *mainScreen = new MainScreen();
+    auto mainScreen = std::shared_ptr<AbstractScreen>(new MainScreen());
 
-    ScreenController *controller = new ScreenController();
+    auto controller = std::make_shared<ScreenController>();
     controller->setActiveScreen(mainScreen);
 
     while (controller->showScreen());

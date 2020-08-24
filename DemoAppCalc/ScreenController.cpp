@@ -1,38 +1,36 @@
 #include "ScreenController.h"
 
 #include <cstdlib>
+#include <memory>
 #include <string>
 #include <iostream>
 
-ScreenController::ScreenController()
-{
-	mScreen = nullptr;
+ScreenController::ScreenController() {
+    mScreen = nullptr;
+    mHistory = std::make_unique<History>();
 }
 
-void ScreenController::setActiveScreen(AbstractScreen* bs)
-{
-	mScreen = bs;
+void ScreenController::setActiveScreen(const std::shared_ptr<AbstractScreen> &bs) {
+    mScreen = bs.get();
 }
 
-bool ScreenController::showScreen()
-{
-	system("cls");
-	mScreen->showOptions();
+bool ScreenController::showScreen() {
+    system("cls");
+    mScreen->showOptions();
 
-	std::cout << mLastResponse << std::endl;
+    std::cout << mLastResponse << std::endl;
 
-	AbstractScreen* nextScreen = nullptr;
-	std::string response;
+    AbstractScreen* nextScreen;
+    std::string response;
 
-	mScreen->waitInputAndProcess(this, nextScreen, response);
-	
-	mScreen = nextScreen;
-	mLastResponse = response;
-	
-	return (nextScreen != nullptr);
+    mScreen->waitInputAndProcess(this, nextScreen, response);
+
+    mScreen = nextScreen;
+    mLastResponse = response;
+
+    return (nextScreen != nullptr);
 }
 
-History& const ScreenController::getHistory() const
-{
-	return const_cast<History & const>(mHistory);
+History *ScreenController::getHistory() const {
+    return mHistory.get();
 }

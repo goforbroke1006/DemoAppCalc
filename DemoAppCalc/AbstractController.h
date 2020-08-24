@@ -4,5 +4,5 @@
 
 class AbstractController {
 public:
-	virtual History& const getHistory() const = 0;
+    virtual History *getHistory() const = 0;
 };

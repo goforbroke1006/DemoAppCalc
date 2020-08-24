@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 #include "AbstractController.h"
 #include "AbstractScreen.h"
 #include "History.h"
@@ -8,13 +10,13 @@ class ScreenController : public AbstractController
 {
 public:
 	ScreenController();
-	void setActiveScreen(AbstractScreen* bs);
+	void setActiveScreen(const std::shared_ptr<AbstractScreen>& bs);
 	bool showScreen();
 
-	History& const getHistory() const;
+	History* getHistory() const override;
 private:
 	AbstractScreen* mScreen;
 	std::string mLastResponse;
-	History mHistory;
+	std::unique_ptr<History> mHistory;
 };
 

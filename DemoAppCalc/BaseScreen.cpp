@@ -10,7 +10,11 @@ void BaseScreen::showOptions() {
     }
 }
 
-void BaseScreen::waitInputAndProcess(const AbstractController* ctrl, AbstractScreen*& nextScreen, std::string& response) {
+void BaseScreen::waitInputAndProcess(
+        const AbstractController *ctrl,
+        AbstractScreen *&nextScreen,
+        std::string &response
+) {
     int selectedOption = -1;
     std::cin >> selectedOption;
 
